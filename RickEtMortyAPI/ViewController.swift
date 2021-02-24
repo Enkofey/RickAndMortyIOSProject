@@ -73,7 +73,7 @@ class ViewController: UITableViewController {
                 let result = try jsonDecoder.decode(Result.self , from: data)
                 
                 DispatchQueue.main.async {
-                    let snapshot = self.createSnapshot(serieCharacter: result.characters)
+                    let snapshot = self.createSnapshot(serieCharacter: result.results)
                     self.differableDataSource.apply(snapshot)
                 }
                 

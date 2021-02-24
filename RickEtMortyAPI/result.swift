@@ -8,10 +8,10 @@
 import Foundation
 
 struct Result : Decodable{
-    let characters : [SerieCharacter]
+    let results : [SerieCharacter]
     
     enum CodingsKeys : String, CodingKey{
-        case characters = "results"
+        case results = "results"
     }
 }
 
