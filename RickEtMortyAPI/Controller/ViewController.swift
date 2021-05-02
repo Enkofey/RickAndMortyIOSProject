@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, DetailViewDelegate {
     
     
     @IBOutlet weak var searchBar: UISearchBar!
@@ -34,11 +34,22 @@ class ViewController: UIViewController {
         differableDataSource = UICollectionViewDiffableDataSource<Section, Item>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, item) -> UICollectionViewCell? in
             switch item {
             case .character(let serieCharacter):
+                
+                
+                
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell",for: indexPath)
                 
                 let nameTextLabel = UILabel(frame: CGRect(x: 150, y: 10, width: 250, height: 25))
                 
                 nameTextLabel.text = serieCharacter.name
+                nameTextLabel.backgroundColor = UIColor { tc in
+                    switch tc.userInterfaceStyle {
+                    case .dark:
+                        return UIColor.black
+                    default:
+                        return UIColor.white
+                    }
+                }
                 
                 cell.contentView.addSubview(nameTextLabel)
                 cell.setNeedsLayout()
@@ -46,6 +57,14 @@ class ViewController: UIViewController {
                 let statusTextLabel = UILabel(frame: CGRect(x: 150, y: 50, width: 250, height: 25))
                 
                 statusTextLabel.text = serieCharacter.status
+                statusTextLabel.backgroundColor = UIColor { tc in
+                    switch tc.userInterfaceStyle {
+                    case .dark:
+                        return UIColor.black
+                    default:
+                        return UIColor.white
+                    }
+                }
                 
                 cell.contentView.addSubview(statusTextLabel)
                 cell.setNeedsLayout()
@@ -89,12 +108,16 @@ class ViewController: UIViewController {
         differableDataSource.apply(snapshot, animatingDifferences: true)
     }
     
-    /*
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        performSearch(searchQuery: nil)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segueIdentifier(for: segue) {
+            case .detailCharacter:
+                let dest = segue.destination as! DetailViewController
+                let cellSelected = listCharacter[collectionView.indexPath(for: sender as! UICollectionViewCell)!.item]
+                dest.item = cellSelected
+                dest.delegate = self;
+                break
+        }
     }
-     */
 
     private func fetchAPI(){
         let url = URL(string: "https://rickandmortyapi.com/api/character/")!
@@ -135,7 +158,7 @@ class ViewController: UIViewController {
 
 }
 
-extension ViewController: UISearchBarDelegate {
+extension ViewController: UISearchBarDelegate, SegueHandlerType {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         performSearch(searchQuery: searchText)
     }
@@ -147,6 +170,9 @@ extension ViewController: UISearchBarDelegate {
 
     @objc func dismissKeyboard() {
         view.endEditing(true)
+    }
+    enum SegueIdentifier : String {
+        case detailCharacter
     }
 }
 

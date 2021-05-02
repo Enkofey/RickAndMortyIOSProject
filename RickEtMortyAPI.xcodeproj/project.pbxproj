@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F90043D1263EFC1300863452 /* SegueHandlerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90043D0263EFC1300863452 /* SegueHandlerType.swift */; };
 		F90E9875263C089F00CBD568 /* detailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90E9874263C089F00CBD568 /* detailViewController.swift */; };
 		F979D43B25C1C4CD00DF276B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F979D43A25C1C4CD00DF276B /* AppDelegate.swift */; };
 		F979D43D25C1C4CD00DF276B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F979D43C25C1C4CD00DF276B /* SceneDelegate.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F90043D0263EFC1300863452 /* SegueHandlerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueHandlerType.swift; sourceTree = "<group>"; };
 		F90E9874263C089F00CBD568 /* detailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailViewController.swift; sourceTree = "<group>"; };
 		F979D43725C1C4CD00DF276B /* RickEtMortyAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickEtMortyAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F979D43A25C1C4CD00DF276B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				F979D46D25C1C4F600DF276B /* result.swift */,
 				F979D43A25C1C4CD00DF276B /* AppDelegate.swift */,
 				F979D43C25C1C4CD00DF276B /* SceneDelegate.swift */,
+				F90043D0263EFC1300863452 /* SegueHandlerType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				F90E9875263C089F00CBD568 /* detailViewController.swift in Sources */,
 				F979D43D25C1C4CD00DF276B /* SceneDelegate.swift in Sources */,
 				F979D47325C1CCC300DF276B /* ImageLoad.swift in Sources */,
+				F90043D1263EFC1300863452 /* SegueHandlerType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,6 +19,7 @@ struct SerieCharacter : Decodable, Hashable{
     let name: String
     let imageURL: URL
     let status: String
+    let species: String
     
     func contains(query: String?) -> Bool {
             guard let query = query else { return true }
@@ -31,5 +32,6 @@ struct SerieCharacter : Decodable, Hashable{
         case name = "name"
         case imageURL = "image"
         case status = "status"
+        case species = "species"
     }
 }
